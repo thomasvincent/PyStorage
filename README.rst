@@ -3,7 +3,7 @@ Python Storage Disk Toolkit (PyStorage)
 =======================================
 
 .. image:: https://travis-ci.org/kairoaraujo/PyStorage.svg?branch=master
-    :target: https://travis-ci.org/kairoaraujo/PyStorage
+:target: https://travis-ci.org/kairoaraujo/PyStorage
 
 :PyStorage:   Python Storage Disk Toolkit
 :Copyright:   Copyright (c) 2016  Kairo Araujo <kairo@kairo.eti.br>
@@ -11,9 +11,10 @@ Python Storage Disk Toolkit (PyStorage)
 :Development: https://github.com/kairoaraujo/PyStorage
 
 .. contents::
-    :local:
+:local:
     :depth: 2
-    :backlinks: none
+
+        :backlinks: none
 
 Overview
 ========

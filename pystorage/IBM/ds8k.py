@@ -4,6 +4,7 @@
 #
 from pystorage import runsub
 
+
 class DS8K(object):
     """
     Class IBM.DS8K() works with IBM DS8000 System Storage family.
@@ -34,7 +35,7 @@ class DS8K(object):
         self.dscli_bin = dscli_bin
         self.dscli_profile = dscli_profile
         self.base_cmd = '{0} -cfg {1}'.format(self.dscli_bin,
-                                              self.dscli_profile )
+                                              self.dscli_profile)
 
     def __repr__(self):
         """
@@ -123,7 +124,6 @@ class DS8K(object):
         else:
             return id_out
 
-
     def get_volgrpid(self, wwpn=''):
         """
         Get the Volume Group ID from host by the WWPN.
@@ -142,7 +142,6 @@ class DS8K(object):
             return volgrpid_out[0], volgrpid_splitted
         else:
             return volgrpid_out
-
 
     def lsfbvol(self, args=''):
         """
@@ -183,9 +182,8 @@ class DS8K(object):
         :return: array as [return code, output].
         """
 
-
         mkfbvol_cmd = '{0} mkfbvol -extpool {1} -cap {2} -name {3}_#h -eam' \
-                      ' rotateexts -sam ese -volgrp {4} {5}'\
+                      ' rotateexts -sam ese -volgrp {4} {5}' \
             .format(self.base_cmd, pool, size, prefix, vol_group, address)
 
         mkfbvol_out = runsub.cmd(mkfbvol_cmd)
@@ -202,10 +200,9 @@ class DS8K(object):
         :return: array as [return code, output].
         """
 
-        chvolgrp_cmd = '{0} chvolgrp -action add -volume {1} -volgrp {2}'\
+        chvolgrp_cmd = '{0} chvolgrp -action add -volume {1} -volgrp {2}' \
             .format(self.base_cmd, vol_address, vol_group)
 
         chvolgrp_out = runsub.cmd(chvolgrp_cmd)
 
         return chvolgrp_out
-

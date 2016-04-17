@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 #
+
+
 def gb2cyl(size):
     """
     This function calculate the number of cylinders.
@@ -29,25 +31,25 @@ def gb2cyl(size):
     fifty_gb = 54620
 
     def base10(valueb10):
-        int10 = valueb10/10
-        flt10 = valueb10%10
+        int10 = valueb10 / 10
+        flt10 = valueb10 % 10
 
-        result_b10 = (int10*teen_gb)+(flt10*gb)
+        result_b10 = (int10 * teen_gb) + (flt10 * gb)
         return result_b10
 
     def base50(valueb50):
-        int50 = valueb50/50
-        flt50 = valueb50%50
+        int50 = valueb50 / 50
+        flt50 = valueb50 % 50
 
         if flt50 == 0:
-            result_b50 = (int50*fifty_gb)
+            result_b50 = (int50 * fifty_gb)
             return result_b50
 
         elif (flt50 > 0) and (flt50 < 10):
-            return (int50*fifty_gb)+(flt50*gb)
+            return (int50 * fifty_gb) + (flt50 * gb)
 
         else:
-            return (int50*fifty_gb)+base10(flt50)
+            return (int50 * fifty_gb) + base10(flt50)
 
     if size < 10:
         size *= gb

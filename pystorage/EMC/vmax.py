@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 # 
-from pystorage import runsub
 from pystorage import calc
+from pystorage import runsub
 
 
 class VMAX(object):
@@ -53,7 +53,7 @@ class VMAX(object):
 
         return symcfg_list_out
 
-    def lspools(self,  sid='', args=''):
+    def lspools(self, sid='', args=''):
         """
         List all available pools on VMAX.
         :param sid: Identification of VMAX (SID)
@@ -68,7 +68,6 @@ class VMAX(object):
             self.symcli_path, sid, args)
 
         lspools_out = runsub.cmd(lspools_cmd)
-
 
         if lspools_out[0] == 0:
             return lspools_out[0], lspools_out[1].split('Legend:')[0]
@@ -87,12 +86,11 @@ class VMAX(object):
         self.validate_args()
 
         ign_cmd = "{0}/symaccess -sid {1} -type init list -wwn {2}".format(
-                self.symcli_path, sid, wwn)
+            self.symcli_path, sid, wwn)
 
         ign_out = runsub.cmd(ign_cmd)
 
         return ign_out
-
 
     def get_ign(self, sid='', wwn=''):
         """
@@ -134,7 +132,6 @@ class VMAX(object):
 
         return mvn_out
 
-
     def get_mvn(self, sid='', ign=''):
         """
         Get the Mask View Names by Initiator Group Name.
@@ -149,11 +146,11 @@ class VMAX(object):
 
         if mvn_out[0] == 0:
             mvn_splitted = mvn_out[1].split(
-                    'Masking View Names'
+                'Masking View Names'
             )[1].split(
-                    '{'
+                '{'
             )[1].split(
-                    '}')[0]
+                '}')[0]
 
             mvn_array = [line for line in mvn_splitted.split('\n') if
                          line.strip() != '']
